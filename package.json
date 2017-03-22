@@ -1,0 +1,25 @@
+{
+  "name": "react-native-checkbox-heaven",
+  "version": "0.1.1",
+  "description": "\"beautiful checkboxes for react-native\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "checkbox",
+    "component",
+    "ios"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismayilmalik/react-native-checkbox-heaven.git"
+  },
+  "homepage": "https://github.com/ismayilmalik/react-native-checkbox-heaven.git#readme",
+  "author": "Ismayil Malik",
+  "license": "ISC",
+  "dependencies": {
+    "react-native-vector-icons": "^4.0.0"
+  }
+}
