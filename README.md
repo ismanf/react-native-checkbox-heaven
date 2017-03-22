@@ -54,7 +54,7 @@ Or
 | labelPosition     | string   | 'right'                   | Position for label ('right' or 'left')  |
 | labelStyle        | object   | {fontSize:16,marginLeft:3}| Style for [Text](http://facebook.github.io/react-native/docs/text.html)                           |
 | iconName          | string   | 'iosMix'                  | Icon name                                |
-| iconStyle         | object   | {}                        | Custom style for Icon                    |
+| iconStyle         | object   | {}                        | Custom style for Icon [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)                   |
 | iconSize          | number   | 30                        | Icon size                   |
 | checkedColor      | string   | '#464646'                 | Icon color for checked state             |
 | uncheckedColor    | string   | '#464646'                 | Icon color for checked state             |
