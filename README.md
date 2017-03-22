@@ -11,9 +11,9 @@ I categorized checkboxes to 3 type:
 2. ***Fill*** (filled icon for both state)
 3. ***Mix*** (outlined for unchecked, filled for checked state)
 
-# Default checkboxes 
+# **Default checkboxes** 
 ![Imgur](http://i.imgur.com/G5N131cl.png)
-# Styled checkboxes  
+# **Styled checkboxes**  
 ![Imgur](http://i.imgur.com/zbM5s0Cm.png)
 
 ## **Installation guide**
