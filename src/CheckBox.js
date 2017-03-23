@@ -2,32 +2,28 @@ import React from 'react'
 import ReactNative from 'react-native'
 import iconDb from './iconDb'
 
-const { PropTypes } = React
+const { PropTypes, Component } = React
 const { View, Text, TouchableOpacity, StyleSheet } = ReactNative
 const defaultIcon = iconDb[8]
 
-const CheckBox = (props) => {
+class CheckBox extends Component {
 
-    const {
-        labelPosition,
-        labelStyle,
-        iconName,
-        iconSize,
-        iconColor,
-        iconStyle,
-        checked,
-        checkedColor,
-        uncheckedColor,
-        style
-    } = props
-    const { contentStyle } = styles
-    const flexDirection = labelPosition === 'left' ? 'row-reverse' : 'row'
-
-    const _onChange = () => {
-        props.onChange(!props.checked)
+    componentWillMount() {
+        this.state = { checked: this.props.checked }
     }
 
-    const _renderIcon = (iconName) => {
+    _onChange() {
+        const newVal = !this.state.checked
+        const { onChange } = this.props
+        this.setState({ checked:newVal }, () => {
+            onChange(newVal)
+        })
+    }
+
+    _renderIcon(iconName) {
+
+        const { iconSize, iconStyle, checkedColor, uncheckedColor } = this.props
+        const checked = this.state.checked
         const index = iconDb.findIndex(i => i.iconName === iconName)
 
         if (index !== -1) {
@@ -46,27 +42,31 @@ const CheckBox = (props) => {
         )
     }
 
-    const _renderContent = () => {
+    _renderContent() {
+
+        const { labelPosition, labelStyle, label, iconName } = this.props
+        const flexDirection = labelPosition === 'left' ? 'row-reverse' : 'row'
+
         return (
-            <View style={[contentStyle, { flexDirection }]}>
-                {_renderIcon(iconName)}
-                < Text style={labelStyle}>
-                    {props.label}
-                </Text>
+            <View style={[styles.contentStyle, { flexDirection }]}>
+                {this._renderIcon.call(this, iconName)}
+                {label && < Text style={labelStyle}>{label}</Text>}
             </View>
         )
     }
 
-    return (
-        <TouchableOpacity
-            onPress={_onChange}
-            style={style}
-        >
-            {_renderContent()}
-        </TouchableOpacity>
-    )
+    render() {
+        const { style } = this.props
+        return (
+            <TouchableOpacity
+                onPress={this._onChange.bind(this)}
+                style={style}
+            >
+                {this._renderContent.call(this)}
+            </TouchableOpacity>
+        )
+    }
 }
-
 const styles = StyleSheet.create({
     contentStyle: {
         alignItems: 'center'
