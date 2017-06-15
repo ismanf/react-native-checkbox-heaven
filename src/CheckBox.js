@@ -50,7 +50,11 @@ class CheckBox extends Component {
         return (
             <View style={[styles.contentStyle, { flexDirection }]}>
                 {this._renderIcon.call(this, iconName)}
-                {label && < Text style={labelStyle}>{label}</Text>}
+                {
+                    label ?
+                    <Text style={labelStyle}>{label}</Text>
+                    : null
+                }
             </View>
         )
     }
