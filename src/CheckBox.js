@@ -12,6 +12,12 @@ class CheckBox extends Component {
         this.state = { checked: this.props.checked }
     }
 
+    componentWillReceiveProps(props) {
+        this.setState({
+            checked: props.checked
+        })
+    }
+
     _onChange() {
         const newVal = !this.state.checked
         const { onChange } = this.props
