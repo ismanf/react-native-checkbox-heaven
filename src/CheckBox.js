@@ -7,6 +7,16 @@ const { Component } = React
 const { View, Text, TouchableOpacity, StyleSheet } = ReactNative
 const defaultIcon = iconDb[8]
 
+const styles = StyleSheet.create({
+    contentStyle: {
+        alignItems: 'center'
+    },
+    labelStyle: {
+        fontSize: 16,
+        marginLeft: 3
+    }
+})
+
 class CheckBox extends Component {
 
     static propTypes = {
@@ -103,14 +113,5 @@ class CheckBox extends Component {
         )
     }
 }
-const styles = StyleSheet.create({
-    contentStyle: {
-        alignItems: 'center'
-    },
-    labelStyle: {
-        fontSize: 16,
-        marginLeft: 3
-    }
-})
 
 export default CheckBox
