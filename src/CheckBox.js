@@ -1,12 +1,48 @@
 import React from 'react'
 import ReactNative from 'react-native'
 import iconDb from './iconDb'
+import PropTypes from 'prop-types'
 
-const { PropTypes, Component } = React
+const { Component } = React
 const { View, Text, TouchableOpacity, StyleSheet } = ReactNative
 const defaultIcon = iconDb[8]
 
+const styles = StyleSheet.create({
+    contentStyle: {
+        alignItems: 'center'
+    },
+    labelStyle: {
+        fontSize: 16,
+        marginLeft: 3
+    }
+})
+
 class CheckBox extends Component {
+
+    static propTypes = {
+        style: PropTypes.style,
+        onChange: PropTypes.func.isRequired,
+        checked: PropTypes.bool,
+        labelPosition: PropTypes.string,
+        labelStyle: PropTypes.style,
+        iconName: PropTypes.string,
+        iconStyle: PropTypes.style,
+        iconSize: PropTypes.number,
+        checkedColor: PropTypes.string,
+        uncheckedColor: PropTypes.string,
+    };
+
+    static defaultProps = {
+        style: {},
+        checked: false,
+        labelPosition: 'right',
+        labelStyle: styles.labelStyle,
+        iconName: 'iosMix',
+        iconStyle: {},
+        iconSize: 30,
+        checkedColor: '#464646',
+        uncheckedColor: '#464646',
+    };
 
     componentWillMount() {
         this.state = { checked: this.props.checked }
@@ -76,40 +112,6 @@ class CheckBox extends Component {
             </TouchableOpacity>
         )
     }
-}
-const styles = StyleSheet.create({
-    contentStyle: {
-        alignItems: 'center'
-    },
-    labelStyle: {
-        fontSize: 16,
-        marginLeft: 3
-    }
-})
-
-CheckBox.propTypes = {
-    style: Text.propTypes.style,
-    onChange: PropTypes.func.isRequired,
-    checked: PropTypes.bool,
-    labelPosition: PropTypes.string,
-    labelStyle: Text.propTypes.style,
-    iconName: PropTypes.string,
-    iconStyle: Text.propTypes.style,
-    iconSize: PropTypes.number,
-    checkedColor: PropTypes.string,
-    uncheckedColor: PropTypes.string,
-}
-
-CheckBox.defaultProps = {
-    style: {},
-    checked: false,
-    labelPosition: 'right',
-    labelStyle: styles.labelStyle,
-    iconName: 'iosMix',
-    iconStyle: {},
-    iconSize: 30,
-    checkedColor: '#464646',
-    uncheckedColor: '#464646',
 }
 
 export default CheckBox
