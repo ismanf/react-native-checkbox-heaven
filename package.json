@@ -20,6 +20,7 @@
   "author": "Ismayil Malik",
   "license": "ISC",
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react-native-vector-icons": "^4.0.0"
   }
 }
