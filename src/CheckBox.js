@@ -1,10 +1,8 @@
-import React from 'react'
-import ReactNative from 'react-native'
+import React, {PureComponent} from 'react'
+import {View, Text, TouchableOpacity, StyleSheet, ViewPropTypes } from 'react-native'
 import iconDb from './iconDb'
 import PropTypes from 'prop-types'
 
-const { Component } = React
-const { View, Text, TouchableOpacity, StyleSheet } = ReactNative
 const defaultIcon = iconDb[8]
 
 const styles = StyleSheet.create({
@@ -17,16 +15,16 @@ const styles = StyleSheet.create({
     }
 })
 
-class CheckBox extends Component {
+class CheckBox extends PureComponent {
 
     static propTypes = {
-        style: PropTypes.style,
+        style: ViewPropTypes.style,
         onChange: PropTypes.func.isRequired,
         checked: PropTypes.bool,
         labelPosition: PropTypes.string,
-        labelStyle: PropTypes.style,
+        labelStyle: Text.propTypes.style,
         iconName: PropTypes.string,
-        iconStyle: PropTypes.style,
+        iconStyle: ViewPropTypes.style,
         iconSize: PropTypes.number,
         checkedColor: PropTypes.string,
         uncheckedColor: PropTypes.string,
@@ -45,7 +43,9 @@ class CheckBox extends Component {
     };
 
     componentWillMount() {
-        this.state = { checked: this.props.checked }
+        this.setState({
+            checked: this.props.checked
+        });
     }
 
     componentWillReceiveProps(props) {
