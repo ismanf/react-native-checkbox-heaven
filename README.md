@@ -112,3 +112,8 @@ AppRegistry.registerComponent('checkboxDemo', () => checkboxDemo);
 ## License
 
 This project is licenced under the [MIT License](http://opensource.org/licenses/mit-license.html).
+
+## Contribution
+
+Speacial thanks to [Maksim Degtyarev](https://github.com/maksimdegtyarev) and [pitchourou](https://github.com/pitchourou).
+Any contribution welcome!
