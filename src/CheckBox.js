@@ -28,6 +28,8 @@ class CheckBox extends PureComponent {
         iconSize: PropTypes.number,
         checkedColor: PropTypes.string,
         uncheckedColor: PropTypes.string,
+        disabled: PropTypes.bool,
+        disabledColor: PropTypes.string,
     };
 
     static defaultProps = {
@@ -40,17 +42,21 @@ class CheckBox extends PureComponent {
         iconSize: 30,
         checkedColor: '#464646',
         uncheckedColor: '#464646',
+        disabledColor: '#888',
+        disabled: false,
     };
 
     componentWillMount() {
         this.setState({
-            checked: this.props.checked
+            checked: this.props.checked,
+            disabled: this.props.disabled
         });
     }
 
     componentWillReceiveProps(props) {
         this.setState({
-            checked: props.checked
+            checked: props.checked,
+            disabled: props.disabled
         })
     }
 
@@ -64,8 +70,9 @@ class CheckBox extends PureComponent {
 
     _renderIcon(iconName) {
 
-        const { iconSize, iconStyle, checkedColor, uncheckedColor } = this.props
-        const checked = this.state.checked
+        const { iconSize, iconStyle, checkedColor, uncheckedColor, disabledColor } = this.props
+        const checked = this.state.checked;
+        const disabled = this.state.disabled;
         const index = iconDb.findIndex(i => i.iconName === iconName)
 
         if (index !== -1) {
@@ -78,7 +85,7 @@ class CheckBox extends PureComponent {
             <Icon
                 name={checked ? checkedIconName : uncheckedIconName}
                 size={iconSize}
-                color={checked ? checkedColor : uncheckedColor}
+                color={disabled ? disabledColor : checked ? checkedColor : uncheckedColor}
                 style={iconStyle}
             />
         )
@@ -102,10 +109,12 @@ class CheckBox extends PureComponent {
     }
 
     render() {
-        const { style } = this.props
+        const { style } = this.props;
+        const { disabled } = this.props;
         return (
             <TouchableOpacity
                 onPress={this._onChange.bind(this)}
+                disabled={disabled}
                 style={style}
             >
                 {this._renderContent.call(this)}
