@@ -119,5 +119,5 @@ This project is licenced under the [MIT License](http://opensource.org/licenses/
 
 ## Contribution
 
-Speacial thanks to [Maksim Degtyarev](https://github.com/maksimdegtyarev) and [pitchourou](https://github.com/pitchourou).
+Speacial thanks to [udarts](https://github.com/udarts), [Maksim Degtyarev](https://github.com/maksimdegtyarev) and [pitchourou](https://github.com/pitchourou).
 Any contribution welcome!
