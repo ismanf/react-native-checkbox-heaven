@@ -67,6 +67,8 @@ export default class checkboxDemo extends Component {
           checkedColor='#008080'
           uncheckedColor='#8b0000'
           onChange={this.handleOnChange.bind(this)}
+          disabled={true}
+          disabledColor='red'
         />
       </View>
     );
@@ -108,6 +110,8 @@ AppRegistry.registerComponent('checkboxDemo', () => checkboxDemo);
 | iconSize          | number   | 30                        | Icon size                   |
 | checkedColor      | string   | '#464646'                 | Icon color for checked state             |
 | uncheckedColor    | string   | '#464646'                 | Icon color for checked state             |
+| disabled          | bool     | false                     | Disable checkbox                         |
+| disabledColor     | string   | '#888'                    | Disabled color
 
 ## License
 
