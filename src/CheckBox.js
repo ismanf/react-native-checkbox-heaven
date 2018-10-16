@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet, ViewPropTypes } from 'react-na
 import iconDb from './iconDb'
 import PropTypes from 'prop-types'
 
-const defaultIcon = iconDb[8]
+let defaultIcon = iconDb[8]
 
 const styles = StyleSheet.create({
     contentStyle: {
